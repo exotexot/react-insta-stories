@@ -12,7 +12,7 @@ export const renderer: Renderer = ({
   messageHandler,
 }) => {
   const [loaded, setLoaded] = React.useState(false);
-  const [muted, setMuted] = React.useState(false);
+  const muted = true
   const { width, height, loader, storyStyles } = config;
 
   let computedStyles = {
@@ -49,7 +49,6 @@ export const renderer: Renderer = ({
         action("play");
       })
       .catch(() => {
-        setMuted(true);
         vid.current.play().finally(() => {
           action("play");
         });
